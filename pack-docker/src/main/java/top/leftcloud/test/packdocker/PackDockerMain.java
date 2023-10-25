@@ -27,6 +27,7 @@ public class PackDockerMain {
     public static void main(String[] args) {
         log.info("branch-231025 start");
         SpringApplication.run(PackDockerMain.class, args);
+        log.info("branch-231025 finish");
     }
 
 }
