@@ -1,5 +1,6 @@
 package top.leftcloud.test.packdocker;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @RestController
 @RequestMapping
 @SpringBootApplication
@@ -23,8 +25,9 @@ public class PackDockerMain {
     }
 
     public static void main(String[] args) {
-
+        log.info("main start");
         SpringApplication.run(PackDockerMain.class, args);
+        log.info("main finish");
     }
 
 }
