@@ -11,6 +11,10 @@
 
     <artifactId>pack-docker</artifactId>
 
+    <properties>
+        <disruptor.version>3.3.7</disruptor.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -52,6 +56,21 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>${disruptor.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>32.1.2-jre</version>
+        </dependency>
+
+
     </dependencies>
 
 
