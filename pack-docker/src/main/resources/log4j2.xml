@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN" monitorInterval="30">
+    <properties>
+<!--        <property name="LOG_HOME">./applog/logs</property>-->
+        <property name="LOG_HOME">logs</property>
+        <Property name="FILE_NAME" value="practisesvr"/>
+        <Property name="LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss}] [%-5level] [%thread] [%file:%line] → [%enc{%m}{CRLF}]%n"/>
+    </properties>
+    <!--定义所有的appender -->
+    <appenders>
+        <!--这个输出控制台的配置
+            target="SYSTEM_OUT 默认黑色字体，
+            target="SYSTEM_ERR 设置红色字体-->
+        <console name="consoleAppender" target="SYSTEM_OUT">
+            <!--输出日志的格式 -->
+<!--            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.sss} %c %M %L %thread %m%n" />-->
+            <PatternLayout pattern="%highlight{[%thread] [%-5level] %d{yyyy-MM-dd HH:mm:ss.sss} %c %M %L %m%n}" />
+        </console>
+        <console name="consoleNormalAppender" target="SYSTEM_OUT">
+            <!--输出日志的格式 -->
+            <PatternLayout
+                    pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.sss} %c %M %L %thread %m%n" />
+        </console>
+        <RollingFile name="SIZE_BASED_TRIGGERING"
+                     fileName="${LOG_HOME}/${FILE_NAME}.log"
+                     filePattern="${LOG_HOME}/${FILE_NAME}_%d{yyyy-MM-dd}_%i.log"
+                     createOnDemand="true">
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+
+            <DefaultRolloverStrategy max="8"/>
+        </RollingFile>
+    </appenders>
+    <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
+    <loggers>
+        <root level="info">
+            <appender-ref ref="consoleAppender" />
+<!--            <appender-ref ref="consoleNormalAppender" />-->
+        </root>
+        <logger name="top.leftcloud.test.packdocker" level="info">
+            <appender-ref ref="SIZE_BASED_TRIGGERING" />
+        </logger>
+    </loggers>
+</configuration>

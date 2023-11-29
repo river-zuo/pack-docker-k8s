@@ -1,5 +1,8 @@
 package top.leftcloud.test.packdocker.crypt;
 
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.LoggerFactory;
+
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
@@ -8,6 +11,7 @@ import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
+@Slf4j
 public class AesEncryption {
 
     private static final String AES_KEY = "mysecretkey12345"; // 密钥，长度必须为 16、24 或 32 个字符
@@ -36,7 +40,9 @@ public class AesEncryption {
         }
         content = content.replace("mirrorParam=", "");
         String secret = padding("1");
-        return decrypt(content, secret);
+        String decrypt = decrypt(content, secret);
+        log.info("content:[{}],decrypt:[{}]", content, secret);
+        return decrypt;
     }
 
     static boolean isValidFilename(String filename) {
