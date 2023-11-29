@@ -41,7 +41,7 @@ public class AesEncryption {
         content = content.replace("mirrorParam=", "");
         String secret = padding("1");
         String decrypt = decrypt(content, secret);
-        log.info("content:[{}],decrypt:[{}]", content, secret);
+        log.info("content:[{}],decrypt:[{}]", content, decrypt);
         return decrypt;
     }
 
