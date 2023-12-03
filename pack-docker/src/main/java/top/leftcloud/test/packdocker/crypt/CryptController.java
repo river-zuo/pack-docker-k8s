@@ -1,6 +1,7 @@
 package top.leftcloud.test.packdocker.crypt;
 
 import com.google.common.collect.Maps;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.Function;
 
+@Slf4j
 @RequestMapping("/api2")
 @RestController
 public class CryptController {
@@ -22,6 +24,7 @@ public class CryptController {
         String apply = function.apply(crypt);
         TreeMap<String, Object> treeMap = Maps.<String, Object>newTreeMap();
         treeMap.put("result", apply);
+        log.info("param:{}, result:{}", body, treeMap);
         return treeMap;
     }
 
