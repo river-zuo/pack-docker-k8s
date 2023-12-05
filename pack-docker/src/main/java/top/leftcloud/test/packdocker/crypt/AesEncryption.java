@@ -31,7 +31,28 @@ public class AesEncryption {
 //        System.out.println("解密后：" + decrypted);
 //    }
 
+    public static void main(String[] args) throws UnknownHostException {
+        String content = "https://192.168.30.77/api/anbao/v1/organization_prepare/security_objectives/company?mirrorParam=KTDffMoB9HqDlGxNvx9Nr6fuC4dMoE87UD9ymJeAaTmMoOeNEVEerOdvpBfZ+CZC7T9oh8kroieCXLyXFIva4XgnqJ5TXmQ0dHDDMLQnDbY=";
 
+        content = "\thttps://10.50.2.88/api/anbao/v1/organization_prepare/security_objectives/company?mirrorParam=zOVCCFzTtHGxZrOzWfNdu3mDVOzAYkUlcbhF1zNNt97WCsaVIcx0V4Expile1V1+lSPQc45Xj/2QtDqqMQ2j1ERdww3vy64r42LXoqxHv/c=";
+
+        content = "Kky1Qxd5dHBSU79esMRuNXAqWp4XHlUnRJCbB53JuWkCjhhXHKmcnz3m47WtXC7erhF8DfUFgOTkdsAcX3E+yzXZJeTPsFyWoGys4vpRaImF5OYTAX8xeDj+86fw3OlKk0y1yr4Aj6oAGLwczRvGwjvoJ0tJOxn+hpWXGjIOr9XS3ZTIyEZwRi1WOLAxbxH+zAyoTrX/Y4k/la75YKlunWR9IimwZWWXsBrlghJhETQ=";
+        content = "zOVCCFzTtHGxZrOzWfNdu85Hfq+Gk/+/UxNwj6aJ0sk=";
+        content = "https://10.50.2.88/api/anbao/v1/guard/center/guard/stat?mirrorParam=e2HVnmouMdHT6iGgodNFc2akzt99QEzcqbZKQ54i14GmEq4/hv+R44JZq+Vp/N52";
+        content = "https://10.50.2.88/api/anbao/v1/activity?mirrorParam=Zu47Q9+pfYx/y7QW5YmofA==";
+        content = "mirrorParam=k96dx9UD4DfK65jstyLmttoy2307aAh+WbYY0DZCV1CLXZZ+skZdYtneNJB4aySl";
+//        content = "https://192.168.30.77/api/alarm/retrieval/detail?mirrorParam=DKKLhiBE4I1IxVvsWPreg1PFuP6nquFZ2VmBFw1Edr7tonqJvh6Ga8lOt2/2MGGwb63uf9WjjxOCsADRc9f//MX6Zamo/kBUOrpAloHCNPqQVtmcPF+CJSQCCfUZlusKDt7aa/Bj8G7wzloeoLeR+g==";
+
+        String decrypt = processCrypt(content);
+        System.out.println(decrypt);
+
+        String hostAddress = InetAddress.getLocalHost().getHostAddress();
+        System.out.println(hostAddress);
+
+        String f = "package-info.java";
+        boolean validFilename = isValidFilename(f);
+        System.out.println(validFilename);
+    }
 
     public static String processCrypt(String content) {
         content = content.trim();
