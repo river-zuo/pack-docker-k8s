@@ -11,6 +11,7 @@
     <modules>
         <module>pack-docker</module>
         <module>proj-flink-streaming</module>
+        <module>maven-plugin</module>
     </modules>
 
     <properties>
